@@ -1,16 +1,29 @@
 interface Pokemon {
-    id: number
+    id: number;
     name: string;
+    base_experience: number;
+    sprites: {
+        front_default: string;
+    }
 }
 
-const Base = `https://pokeapi.co/api/v2/pokemon/ditto`;
 
-async function buscar(): Promise<Pokemon>{
-    const response = await fetch(Base);
-    const nome = (await response.json()) as Pokemon;
-    return nome
+
+
+
+async function buscarPokemon(id: number): Promise<Pokemon> {
+    const api = `https://pokeapi.co/api/v2/pokemon/${id}`;
+
+    const resposta = await fetch(api);
+
+    const info: Pokemon = (await resposta.json()) as Pokemon;
+
+    return info;
 }
 
-const pokemon = await buscar();
+const pokemon = await buscarPokemon(1);
 
+console.log(pokemon.id);
 console.log(pokemon.name);
+console.log(pokemon.base_experience);
+console.log(pokemon.sprites.front_default);

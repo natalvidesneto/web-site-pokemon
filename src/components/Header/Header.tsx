@@ -49,11 +49,6 @@ export function Header() {
               Pokedex
             </Link>
           </li>
-          <li className={styles.navItem}>
-            <Link to="/contato" className={styles.navLink} onClick={closeMenu}>
-              Contato
-            </Link>
-          </li>
         </ul>
       </nav>
     </header>
