@@ -37,7 +37,12 @@ export function Pokedex() {
 
   // carrega a primeira página ao montar
   useEffect(() => {
-    carregarLista(0);
+    // Adia a chamada para o próximo tick, evitando setState síncrono no efeito
+    const id = setTimeout(() => {
+      carregarLista(0);
+    }, 0);
+
+    return () => clearTimeout(id);
   }, [carregarLista]);
 
   /** Busca específica (nome ou ID) */
@@ -133,7 +138,7 @@ export function Pokedex() {
           </div>
         )}
       </main>
-      <Footer/>
+      <Footer />
     </>
   );
 }
