@@ -2,6 +2,7 @@ import { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { Header } from "../../components/Header/Header";
 import styles from "./Home.module.css";
+import { Footer } from "../../components/Footer/Footer";
 
 const BASE = "https://pokeapi.co/api/v2/pokemon";
 
@@ -130,6 +131,7 @@ export function Home() {
           </div>
         </section>
       </main>
+      <Footer/>
     </>
   );
 }
