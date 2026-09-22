@@ -13,7 +13,7 @@ export function Header() {
       <nav className={styles.nav}>
         <div className={styles.logo}>
           <Link to="/" onClick={closeMenu}>
-            MeuApp
+            Pokémon
           </Link>
         </div>
 
@@ -45,8 +45,8 @@ export function Header() {
             </Link>
           </li>
           <li className={styles.navItem}>
-            <Link to="/sobre" className={styles.navLink} onClick={closeMenu}>
-              Sobre
+            <Link to="/Pokedex" className={styles.navLink} onClick={closeMenu}>
+              Pokedex
             </Link>
           </li>
           <li className={styles.navItem}>
