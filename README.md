@@ -1,75 +1,49 @@
-# React + TypeScript + Vite
+# 🔴 Pokédex Web App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+![React](https://img.shields.io/badge/React-19.2-blue?logo=react)
+![TypeScript](https://img.shields.io/badge/TypeScript-5.6-blue?logo=typescript)
+![Vite](https://img.shields.io/badge/Vite-8.3-purple?logo=vite)
+![License](https://img.shields.io/badge/license-MIT-green)
 
-Currently, two official plugins are available:
+Uma aplicação web moderna e responsiva para consulta de Pokémons, desenvolvida para explorar dados em tempo real consumindo a [PokéAPI](https://pokeapi.co/).
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## 📖 Sobre o Projeto
 
-## React Compiler
+Este projeto foi desenvolvido com o objetivo de praticar e consolidar conhecimentos em **React**, **TypeScript** e **Vite**. A aplicação permite que os usuários busquem por seus Pokémons favoritos, visualizem informações detalhadas e naveguem pela Pokédex de forma intuitiva.
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+### ✨ Funcionalidades
 
-## Expanding the ESLint configuration
+- **Busca Dinâmica:** Pesquise Pokémons pelo nome.
+- **Consumo de API:** Integração completa com a PokéAPI.
+- **Interface Responsiva:** Layout adaptável para dispositivos móveis e desktop.
+- **Tipagem Estrita:** Código totalmente tipado com TypeScript para maior segurança e autocompletar.
+- **Roteamento:** Navegação entre páginas utilizando React Router DOM.
 
-If you are developing a production application, we recommend updating the configuration to enable type-aware lint rules:
+## 🚀 Tecnologias Utilizadas
 
-```js
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
+Este projeto foi construído com as seguintes ferramentas e bibliotecas:
 
-      // Remove tseslint.configs.recommended and replace with this
-      tseslint.configs.recommendedTypeChecked,
-      // Alternatively, use this for stricter rules
-      tseslint.configs.strictTypeChecked,
-      // Optionally, add this for stylistic rules
-      tseslint.configs.stylisticTypeChecked,
+- **[React](https://react.dev/):** Biblioteca JavaScript para construção de interfaces.
+- **[TypeScript](https://www.typescriptlang.org/):** Superset do JavaScript que adiciona tipagem estática.
+- **[Vite](https://vitejs.dev/):** Build tool e dev server extremamente rápido.
+- **[React Router DOM](https://reactrouter.com/):** Gerenciamento de rotas da aplicação.
+- **[Normalize.css](https://necolas.github.io/normalize.css/):** Reset de CSS para consistência entre navegadores.
+- **[ESLint](https://eslint.org/):** Padronização e qualidade de código.
 
-      // Other configs...
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
+## 📂 Estrutura do Projeto
 
-```
+A organização de pastas foi pensada para facilitar a manutenção e escalabilidade:
 
-You can also install [eslint-plugin-react-x](https://npmx.dev/package/eslint-plugin-react-x) and [eslint-plugin-react-dom](https://npmx.dev/package/eslint-plugin-react-dom) for React-specific lint rules:
-
-```js
-// eslint.config.js
-import reactX from 'eslint-plugin-react-x'
-import reactDom from 'eslint-plugin-react-dom'
-
-export default defineConfig([
-  globalIgnores(['dist']),
-  {
-    files: ['**/*.{ts,tsx}'],
-    extends: [
-      // Other configs...
-      // Enable lint rules for React
-      reactX.configs['recommended-typescript'],
-      // Enable lint rules for React DOM
-      reactDom.configs.recommended,
-    ],
-    languageOptions: {
-      parserOptions: {
-        project: ['./tsconfig.node.json', './tsconfig.app.json'],
-        tsconfigRootDir: import.meta.dirname,
-      },
-      // other options...
-    },
-  },
-])
-
-```
+```text
+frontend/
+├── src/
+│   ├── assets/       # Imagens e recursos estáticos
+│   ├── components/   # Componentes reutilizáveis (ex: Cards, Header)
+│   ├── pages/        # Páginas da aplicação (ex: Home, Pokedex)
+│   ├── services/     # Configuração de API e chamadas HTTP
+│   ├── styles/       # Estilos globais
+│   ├── utils/        # Funções auxiliares
+│   ├── App.tsx       # Componente principal
+│   └── main.tsx      # Ponto de entrada
+├── package.json
+└── vite.config.ts
