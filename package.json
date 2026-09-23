@@ -1,8 +1,10 @@
 {
-  "name": "frontend",
+  "name": "pokedex-web-app",
   "private": true,
-  "version": "0.0.0",
+  "version": "1.0.0",
   "type": "module",
+  "license": "MIT",
+  "author": "Natalvides Neto",
   "scripts": {
     "dev": "vite",
     "build": "tsc -b && vite build",

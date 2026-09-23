@@ -47,3 +47,5 @@ frontend/
 │   └── main.tsx      # Ponto de entrada
 ├── package.json
 └── vite.config.ts
+
+### Author: Natalvides Neto
