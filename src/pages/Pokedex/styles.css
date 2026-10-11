@@ -1,0 +1,91 @@
+.pokedex-section {
+  padding: 88px max(32px, calc((100% - 1180px) / 2)) 100px;
+  background: radial-gradient(circle at 80% 0, #c9eee08c, transparent 24rem), var(--cream);
+}
+.section-heading {
+  margin-bottom: 42px;
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 24px;
+}
+.section-heading h2 {
+  margin: 10px 0 4px;
+  font-family: "Fredoka", sans-serif;
+  font-size: clamp(2.5rem, 4vw, 4rem);
+  line-height: 1;
+  letter-spacing: -.04em;
+}
+.section-heading p { margin: 0; color: #718a82; }
+.clear-button {
+  padding: 10px 16px;
+  border: 1px solid #2f775f33;
+  color: #34795f;
+  background: transparent;
+  border-radius: 10px;
+  font-weight: 700;
+  cursor: pointer;
+}
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 28px;
+}
+.card-skeleton {
+  aspect-ratio: .73;
+  border-radius: 19px;
+  background: linear-gradient(100deg, #e7efe9 25%, #f8fbf8 42%, #e7efe9 62%);
+  background-size: 300% 100%;
+  animation: shimmer 1.4s infinite;
+}
+.error-message {
+  margin: -16px 0 28px;
+  padding: 16px 18px;
+  color: #8d3934;
+  background: #fff0ed;
+  border: 1px solid #f3cbc4;
+  border-radius: 12px;
+}
+.error-message button {
+  margin-left: 12px;
+  border: 0;
+  color: inherit;
+  background: transparent;
+  font-weight: 700;
+  text-decoration: underline;
+  cursor: pointer;
+}
+.load-more {
+  min-width: 260px;
+  margin: 52px auto 0;
+  padding: 16px 24px;
+  display: flex;
+  justify-content: center;
+  gap: 16px;
+  border: 0;
+  border-radius: 14px;
+  color: white;
+  background: var(--green);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 180ms, background 180ms, box-shadow 180ms;
+}
+.load-more:hover {
+  background: #399a78;
+  box-shadow: 0 8px 20px #399a7838;
+  transform: translateY(-2px);
+}
+.load-more:disabled { cursor: wait; opacity: .65; }
+
+@keyframes shimmer { to { background-position: -300% 0; } }
+
+@media (max-width: 1120px) { .card-grid { grid-template-columns: repeat(3, minmax(0, 1fr)); } }
+@media (max-width: 820px) {
+  .pokedex-section { padding: 72px 24px 80px; }
+  .card-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 22px; }
+}
+@media (max-width: 540px) {
+  .section-heading { align-items: start; flex-direction: column; }
+  .card-grid { grid-template-columns: 1fr; gap: 28px; }
+  .pokemon-card { width: min(360px, 100%); margin: auto; }
+}

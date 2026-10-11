@@ -1,0 +1,81 @@
+.site-header {
+  position: sticky;
+  top: 0;
+  z-index: 20;
+  background: rgba(223, 248, 237, 0.88);
+  border-bottom: 1px solid rgba(31, 97, 77, 0.09);
+  backdrop-filter: blur(18px);
+}
+.header-content {
+  width: min(1180px, calc(100% - 64px));
+  height: 82px;
+  margin: auto;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+.header-content nav { display: flex; align-items: center; gap: 36px; }
+.header-content nav a {
+  position: relative;
+  color: var(--ink);
+  font-size: .92rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+.header-content nav a::after {
+  position: absolute;
+  right: 0;
+  bottom: -9px;
+  left: 0;
+  height: 3px;
+  border-radius: 8px;
+  background: var(--green);
+  content: "";
+  transform: scaleX(0);
+  transition: transform 180ms ease;
+}
+.header-content nav a:hover::after { transform: scaleX(1); }
+.nav-count {
+  padding: 8px 14px;
+  color: #397c67;
+  border: 1px solid #397c6733;
+  border-radius: 999px;
+  font-size: .72rem;
+  font-weight: 700;
+  letter-spacing: .08em;
+}
+.menu-button { display: none; }
+
+@media (max-width: 820px) {
+  .header-content { width: calc(100% - 40px); }
+  .menu-button {
+    width: 42px;
+    height: 42px;
+    padding: 10px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 5px;
+    border: 0;
+    background: transparent;
+  }
+  .menu-button span { width: 100%; height: 2px; background: var(--ink); transition: 180ms; }
+  .menu-button.is-open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+  .menu-button.is-open span:nth-child(2) { opacity: 0; }
+  .menu-button.is-open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+  .header-content nav {
+    position: absolute;
+    top: 72px;
+    right: 20px;
+    left: 20px;
+    padding: 22px;
+    display: none;
+    flex-direction: column;
+    align-items: stretch;
+    gap: 20px;
+    background: #f7fffb;
+    border-radius: 14px;
+    box-shadow: 0 20px 40px #154b3a29;
+  }
+  .header-content nav.is-open { display: flex; }
+}

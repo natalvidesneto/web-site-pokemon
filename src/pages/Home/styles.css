@@ -1,0 +1,181 @@
+.hero {
+  position: relative;
+  min-height: 600px;
+  padding: 76px max(32px, calc((100% - 1180px) / 2));
+  display: grid;
+  grid-template-columns: .9fr 1.1fr;
+  align-items: center;
+  overflow: hidden;
+  background:
+    linear-gradient(115deg, rgba(223,248,237,.98) 0 48%, rgba(216,246,234,.74) 70%),
+    repeating-linear-gradient(0deg, transparent 0 48px, #378e6f09 49px 50px);
+}
+.hero-copy { position: relative; z-index: 2; max-width: 560px; }
+.hero h1 {
+  margin: 18px 0 20px;
+  color: var(--ink);
+  font-family: "Fredoka", sans-serif;
+  font-size: clamp(3.5rem, 5.6vw, 5.7rem);
+  line-height: .98;
+  letter-spacing: -.055em;
+}
+.hero h1 em { position: relative; color: var(--green); font-style: normal; }
+.hero h1 em::after {
+  position: absolute;
+  right: 0;
+  bottom: -7px;
+  left: 2px;
+  height: 8px;
+  background: var(--yellow);
+  border-radius: 50%;
+  content: "";
+  transform: rotate(-2deg);
+}
+.hero-copy > p {
+  max-width: 520px;
+  margin: 0 0 32px;
+  color: #58746b;
+  line-height: 1.75;
+}
+.hero-search {
+  position: relative;
+  width: min(100%, 520px);
+  min-height: 62px;
+  padding: 7px 7px 7px 52px;
+  display: flex;
+  align-items: center;
+  background: white;
+  border: 1px solid #2b67541a;
+  border-radius: 16px;
+  box-shadow: 0 15px 35px #347e6621;
+}
+.hero-search svg {
+  position: absolute;
+  left: 20px;
+  width: 21px;
+}
+.hero-search input {
+  min-width: 0;
+  flex: 1;
+  border: 0;
+  outline: 0;
+  color: var(--ink);
+  background: transparent;
+}
+.hero-search input::placeholder { color: #9ab4ab; }
+.hero-search button {
+  align-self: stretch;
+  padding: 0 28px;
+  border: 0;
+  border-radius: 12px;
+  color: white;
+  background: var(--green);
+  font-weight: 700;
+  cursor: pointer;
+  transition: transform 180ms, background 180ms, box-shadow 180ms;
+}
+.hero-search button:hover {
+  background: #399a78;
+  box-shadow: 0 8px 20px #399a7838;
+  transform: translateY(-2px);
+}
+.popular-searches {
+  margin-top: 16px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  gap: 10px;
+  color: #79978d;
+  font-size: .75rem;
+}
+.popular-searches button {
+  padding: 0;
+  border: 0;
+  color: #3e7765;
+  background: transparent;
+  font-weight: 600;
+  cursor: pointer;
+}
+.popular-searches button:hover { text-decoration: underline; }
+.hero-visual { position: relative; min-height: 430px; display: grid; place-items: center; }
+.hero-circle {
+  position: absolute;
+  width: min(430px, 75%);
+  aspect-ratio: 1;
+  background: radial-gradient(circle at 45% 40%, #ffffffcc, transparent 56%), #bcebd9;
+  border: 1px solid #388d6f1a;
+  border-radius: 50%;
+}
+.hero-circle::before {
+  position: absolute;
+  inset: 28px;
+  border: 1px dashed #2e7b6024;
+  border-radius: 50%;
+  content: "";
+}
+.hero-word {
+  position: absolute;
+  top: 4%;
+  color: #479e7f12;
+  font-family: "Fredoka", sans-serif;
+  font-size: clamp(4rem, 9vw, 8rem);
+  font-weight: 700;
+  letter-spacing: -.08em;
+}
+.hero-pokemon {
+  position: relative;
+  z-index: 2;
+  width: min(450px, 92%);
+  padding: 0;
+  border: 0;
+  background: transparent;
+  cursor: pointer;
+  filter: drop-shadow(0 28px 18px #2b6c552e);
+  animation: float 4s ease-in-out infinite;
+}
+.hero-pokemon img { width: 100%; display: block; transition: transform 250ms; }
+.hero-pokemon:hover img { transform: scale(1.04) rotate(2deg); }
+.hero-placeholder {
+  width: 360px;
+  height: 360px;
+  z-index: 2;
+  border-radius: 50%;
+  background: #ffffff59;
+  animation: pulse 1.5s infinite;
+}
+.floating-tag {
+  position: absolute;
+  z-index: 3;
+  right: 5%;
+  bottom: 12%;
+  padding: 10px 16px;
+  color: #745d00;
+  background: #ffea82eb;
+  border-radius: 999px;
+  box-shadow: 0 9px 24px #497e6821;
+  font-size: .7rem;
+  font-weight: 700;
+  letter-spacing: .1em;
+}
+
+@keyframes float { 50% { translate: 0 -12px; } }
+@keyframes pulse { 50% { opacity: .5; } }
+
+@media (max-width: 1120px) { .hero { grid-template-columns: 1fr .9fr; } }
+@media (max-width: 820px) {
+  .hero { min-height: auto; padding: 64px 24px 42px; grid-template-columns: 1fr; text-align: center; }
+  .hero-copy { max-width: 640px; margin: auto; }
+  .eyebrow, .popular-searches { justify-content: center; }
+  .hero-copy > p, .hero-search { margin-right: auto; margin-left: auto; }
+  .hero-visual { min-height: 390px; margin-top: 24px; }
+}
+@media (max-width: 540px) {
+  .hero h1 { font-size: clamp(2.8rem, 14vw, 4rem); }
+  .hero-search { min-height: 58px; padding-left: 45px; }
+  .hero-search svg { left: 16px; }
+  .hero-search button { padding: 0 16px; }
+  .hero-visual { min-height: 310px; }
+  .hero-pokemon { width: min(340px, 100%); }
+  .hero-word { font-size: 18vw; }
+  .floating-tag { right: 3%; bottom: 5%; }
+}

@@ -1,0 +1,193 @@
+.pokemon-card {
+  --type: #a8a77a;
+  position: relative;
+  padding: 8px;
+  color: #17231d;
+  background: linear-gradient(135deg, #f7f7f2, #9fa6a5 12%, #f8faf7 25%, #aeb5b3 45%, #f2f4ef 62%, #989f9e 82%, #f7f7f1);
+  border-radius: 19px;
+  box-shadow: 0 14px 27px #224b3f1f, inset 0 0 0 1px #ffffff99;
+  transition: transform 220ms, box-shadow 220ms;
+}
+.pokemon-card::before {
+  position: absolute;
+  inset: 4px;
+  border: 1px solid #42444033;
+  border-radius: 16px;
+  content: "";
+  pointer-events: none;
+}
+.pokemon-card:hover {
+  z-index: 2;
+  box-shadow: 0 22px 40px #224b3f33;
+  transform: translateY(-8px) rotate(-.5deg);
+}
+.card-inner {
+  position: relative;
+  z-index: 1;
+  height: 100%;
+  padding: 12px;
+  display: flex;
+  flex-direction: column;
+  overflow: hidden;
+  background: linear-gradient(160deg, color-mix(in srgb, var(--type) 90%, white), color-mix(in srgb, var(--type) 60%, #fff8b0) 58%, color-mix(in srgb, var(--type) 80%, white));
+  border: 1px solid #27393129;
+  border-radius: 12px;
+}
+.card-inner::before {
+  position: absolute;
+  inset: 0;
+  background: radial-gradient(circle, #ffffff54 0 2px, transparent 3px);
+  background-size: 33px 33px;
+  content: "";
+  pointer-events: none;
+}
+.card-heading {
+  position: relative;
+  min-height: 36px;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  align-items: end;
+  gap: 6px;
+}
+.card-stage {
+  position: absolute;
+  top: -3px;
+  left: 1px;
+  color: #11261d9e;
+  font-size: .43rem;
+  font-weight: 800;
+  letter-spacing: .08em;
+}
+.card-name {
+  padding: 0 0 2px;
+  overflow: hidden;
+  border: 0;
+  color: #13241c;
+  background: transparent;
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.2rem;
+  font-weight: 700;
+  line-height: 1;
+  text-align: left;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  cursor: pointer;
+}
+.card-name:hover { text-decoration: underline; text-underline-offset: 3px; }
+.card-hp {
+  display: flex;
+  align-items: center;
+  gap: 2px;
+  font-family: "Fredoka", sans-serif;
+  font-size: 1.1rem;
+  font-weight: 700;
+}
+.card-hp small { align-self: end; margin-bottom: 2px; font-size: .45rem; }
+.card-hp i, .move-energy {
+  display: grid;
+  place-items: center;
+  color: white;
+  background: #26342e;
+  border: 2px solid #ffffffcc;
+  border-radius: 50%;
+  box-shadow: 0 0 0 1px #26342e;
+  font-style: normal;
+}
+.card-hp i { width: 23px; height: 23px; margin-left: 3px; font-size: .7rem; }
+.card-art {
+  position: relative;
+  aspect-ratio: 1.28;
+  margin-top: 7px;
+  display: grid;
+  place-items: center;
+  overflow: hidden;
+  border: 5px solid #dbddd2e6;
+  outline: 1px solid #313a3380;
+  background: radial-gradient(circle at 50% 55%, #ffffffe6, transparent 21%), radial-gradient(circle, color-mix(in srgb, var(--type) 45%, white), #deefe6 72%);
+  box-shadow: inset 0 0 25px #ffffffcc, 0 3px #49544c59;
+  cursor: pointer;
+}
+.art-orbit {
+  position: absolute;
+  width: 68%;
+  aspect-ratio: 1;
+  border: 1px solid #ffffffb3;
+  border-radius: 50%;
+  box-shadow: 0 0 0 16px #ffffff14, 0 0 0 38px #ffffff0f;
+}
+.card-art img {
+  position: relative;
+  z-index: 2;
+  width: 76%;
+  height: 92%;
+  object-fit: contain;
+  filter: drop-shadow(0 12px 7px #1a3f3133);
+  transition: transform 220ms;
+}
+.card-art:hover img { transform: scale(1.08); }
+.card-number, .open-hint {
+  position: absolute;
+  z-index: 3;
+  padding: 4px 6px;
+  border-radius: 4px;
+  font-size: .58rem;
+  font-weight: 800;
+}
+.card-number { top: 7px; left: 7px; color: #3e554c; background: #ffffffb8; }
+.open-hint {
+  right: 8px;
+  bottom: 7px;
+  color: white;
+  background: #103227bf;
+  border-radius: 999px;
+  opacity: 0;
+  transform: translateY(6px);
+  transition: 180ms;
+}
+.card-art:hover .open-hint, .card-art:focus-visible .open-hint { opacity: 1; transform: none; }
+.card-meta {
+  position: relative;
+  margin: 7px 4px 0;
+  padding: 3px 7px;
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid #27342c3d;
+  background: #f7f5df7a;
+  font-size: .48rem;
+  font-weight: 700;
+  font-style: italic;
+}
+.card-move {
+  position: relative;
+  min-height: 82px;
+  padding: 15px 2px 10px;
+  display: grid;
+  grid-template-columns: 26px 1fr auto;
+  align-items: start;
+  gap: 7px;
+}
+.move-energy { width: 25px; height: 25px; font-size: .67rem; }
+.card-move strong { display: block; font-family: "Fredoka", sans-serif; font-size: .8rem; line-height: 1.2; }
+.card-move p { margin: 3px 0 0; font-size: .52rem; line-height: 1.4; }
+.card-move b { font-family: "Fredoka", sans-serif; }
+.card-footer {
+  position: relative;
+  margin-top: auto;
+  padding-top: 7px;
+  display: flex;
+  justify-content: space-between;
+  border-top: 1px solid #25362e47;
+  font-size: .48rem;
+  font-weight: 800;
+  letter-spacing: .04em;
+}
+
+.type-grass { --type: #80c86a; } .type-fire { --type: #f38a52; }
+.type-water { --type: #68a8dd; } .type-bug { --type: #a8bd53; }
+.type-normal { --type: #b8b6a5; } .type-electric { --type: #f2cb48; }
+.type-poison { --type: #aa75ba; } .type-ground { --type: #d9b76a; }
+.type-fairy { --type: #eaa6c8; } .type-fighting { --type: #c65b55; }
+.type-psychic { --type: #e76e9b; } .type-rock { --type: #bca75b; }
+.type-ghost { --type: #766da8; } .type-ice { --type: #86c9ca; }
+.type-dragon { --type: #7569ca; } .type-dark { --type: #73655b; }
+.type-steel { --type: #9da9ad; } .type-flying { --type: #92a9d6; }

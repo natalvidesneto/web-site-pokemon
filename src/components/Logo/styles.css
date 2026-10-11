@@ -1,0 +1,15 @@
+.logo {
+  padding: 0;
+  border: 0;
+  color: #ffcb05;
+  background: transparent;
+  font-family: "Fredoka", sans-serif;
+  font-size: 2rem;
+  font-weight: 700;
+  line-height: 1;
+  letter-spacing: -2px;
+  text-shadow: -2px -2px #285a9d, 2px -2px #285a9d, -2px 2px #285a9d, 2px 2px #285a9d;
+  cursor: pointer;
+  transform: rotate(-3deg);
+}
+.logo span { font-size: 1.45rem; }
